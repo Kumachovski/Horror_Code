@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoffeeController : MonoBehaviour
 {
 	public float level = 0;
+    public float offset = 0;
 
 	private Material material;
     private Mesh mesh;
@@ -26,7 +27,7 @@ public class CoffeeController : MonoBehaviour
 
         float max = renderer.bounds.size[1];
 
-        float l =  max * (Mathf.Cos(rads) / 2f + level - 0.5f);
+        float l =  max * (Mathf.Cos(rads) / 2f + level + offset - 0.5f);
 
         material.SetFloat("y", transform.position.y + l);
 
