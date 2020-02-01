@@ -9,14 +9,14 @@ public class CoffeeController : MonoBehaviour
 
 	private Material material;
     private Mesh mesh;
-    private Renderer renderer;
+    private Renderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<MeshRenderer>().material;
         mesh = GetComponent<MeshFilter>().mesh;
-        renderer = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -25,11 +25,11 @@ public class CoffeeController : MonoBehaviour
 		float angle = Vector3.Angle(transform.forward, Vector3.up);
 		float rads = angle * Mathf.Deg2Rad;
 
-        float max = renderer.bounds.size[1];
+        float max = rend.bounds.size[1];
 
-        float l =  max * (Mathf.Cos(rads) / 2f + level + offset - 0.5f);
+        float l =  max * (Mathf.Cos(rads) / 2f + level - 0.5f);
 
-        material.SetFloat("y", transform.position.y + l);
+        material.SetFloat("y", transform.position.y + offset + l);
 
         float r = mesh.bounds.extents[0];
         float h = mesh.bounds.size[2];
