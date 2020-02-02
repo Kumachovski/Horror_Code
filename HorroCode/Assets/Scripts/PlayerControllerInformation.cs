@@ -32,8 +32,8 @@ public class PlayerControllerInformation : MonoBehaviour
 	    food -= timer;
 	    coffee -= timer;
        
-	    coffeine.transform.localScale = new Vector3(coffee/10f,coffeine.transform.localScale.y,coffeine.transform.localScale.z);
-	    hunger.transform.localScale = new Vector3(food/10f,hunger.transform.localScale.y,hunger.transform.localScale.z);
+	    //coffeine.transform.localScale = new Vector3(coffee/10f,coffeine.transform.localScale.y,coffeine.transform.localScale.z);
+	    //hunger.transform.localScale = new Vector3(food/10f,hunger.transform.localScale.y,hunger.transform.localScale.z);
 
         animator.SetFloat("SleepyState", coffee);
 	}

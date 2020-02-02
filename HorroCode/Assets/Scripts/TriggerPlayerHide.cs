@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerPlayerHide : MonoBehaviour
 {
-    public GameObject player;
+    public PlayerControllerInformation player;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +18,14 @@ public class TriggerPlayerHide : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        player.GetComponent<PlayerControllerInformation>().hiddenState = true;
+		if(other.tag == "MainCamera") {
+        	player.hiddenState = true;
+		}
     }
     void OnTriggerExit(Collider other)
     {
-        player.GetComponent<PlayerControllerInformation>().hiddenState = false;
+		if(other.tag == "MainCamera") {
+        	player.hiddenState = false;
+		}
     }
 }

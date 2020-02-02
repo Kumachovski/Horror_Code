@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoffeeDropper : MonoBehaviour
 {
+	public PlayerControllerInformation player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,24 @@ public class CoffeeDropper : MonoBehaviour
     }
 
 	private void OnParticleCollision(GameObject other) {
-		CoffeeController cc = other.transform.GetChild(0).GetComponent<CoffeeController>();
-		cc.level += 0.01f;
+		if(other.layer == LayerMask.NameToLayer("Coffee") || (other.transform.childCount > 0 && other.transform.GetChild(0).gameObject.layer == LayerMask.NameToLayer("Coffee"))) {
+			CoffeeController cc = null;
+
+			try {
+				cc = GetComponent<CoffeeController>();
+			} catch { }
+
+			try {
+				cc = other.transform.GetChild(0).GetComponent<CoffeeController>();
+			} catch { }
+			
+			if(cc != null) {
+				cc.level += 0.0005f;
+			}			
+		}
+
+		if(other.layer == LayerMask.NameToLayer("Player")) {
+			player.coffee += 0.5f;
+		}
 	}
 }

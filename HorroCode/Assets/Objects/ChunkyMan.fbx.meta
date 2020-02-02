@@ -1,8 +1,20 @@
 fileFormatVersion: 2
-guid: 72147bfda7b9443799f7b9d9d07bf6f8
+guid: 429d8609398962945af7fa22b020ed4b
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -7185285296730071872
+    second: monsterSkeleton|chunkyHeadTurnLeft
+  - first:
+      74: 1250087043785641096
+    second: monsterSkeleton|chunkyHeadTurnRight
+  - first:
+      74: -8321151535359272018
+    second: monsterSkeleton|chunkyWalk
+  - first:
+      74: -1906740878605887883
+    second: monsterSkeleton|chunkyWobble
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -34,7 +46,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 50
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -80,7 +92,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
