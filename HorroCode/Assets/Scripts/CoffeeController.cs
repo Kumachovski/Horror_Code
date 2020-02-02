@@ -45,10 +45,8 @@ public class CoffeeController : MonoBehaviour
 
 		if(pouring) {
 			ps.enableEmission = true;
-			Debug.Log("play");
 		} else {
 			ps.enableEmission = false;
-			Debug.Log("pause");
 		}
 
 		level = Mathf.Clamp(level, 0, 1);
