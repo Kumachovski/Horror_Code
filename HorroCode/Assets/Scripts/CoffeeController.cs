@@ -10,6 +10,7 @@ public class CoffeeController : MonoBehaviour
 	private Material material;
     private Mesh mesh;
     private Renderer rend;
+	private ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class CoffeeController : MonoBehaviour
         material = GetComponent<MeshRenderer>().material;
         mesh = GetComponent<MeshFilter>().mesh;
         rend = GetComponent<Renderer>();
+		ps = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -33,13 +35,20 @@ public class CoffeeController : MonoBehaviour
 
         float r = mesh.bounds.extents[0];
         float h = mesh.bounds.size[2];
-
-        Debug.Log(r + " " + h);
         
 		float x = r * Mathf.Tan(rads);
+		bool pouring = false;
 		if (h < l / Mathf.Cos(rads) + x) {
 			level -= Time.deltaTime;
-            Debug.Log("leaking!");
+			if(level > 0) pouring = true;
+		}
+
+		if(pouring) {
+			ps.enableEmission = true;
+			Debug.Log("play");
+		} else {
+			ps.enableEmission = false;
+			Debug.Log("pause");
 		}
 
 		level = Mathf.Clamp(level, 0, 1);
