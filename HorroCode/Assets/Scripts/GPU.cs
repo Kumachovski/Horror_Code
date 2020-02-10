@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GPU : MonoBehaviour
 {
+	public TextAsset textFile;
 	public int i;
 	private Text text;
 	private string[] lines;
@@ -14,7 +15,7 @@ public class GPU : MonoBehaviour
     void Start()
     {
 		text = GetComponent<Text>();
-		lines = System.IO.File.ReadAllLines("Assets/chip.txt");
+		lines = textFile.text.Split('\n');
     }
 
     // Update is called once per frame
